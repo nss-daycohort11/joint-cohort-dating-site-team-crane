@@ -8,6 +8,7 @@ define(function(require) {
   var uid;
   var ref;
   var partner = chatPartner.getChatPartner();
+  var partnerRef = new Firebase("https://funwithfurries.firebaseio.com/" + partner);
 
   getUid().then(function(data) {
     uid = data;
@@ -17,6 +18,10 @@ define(function(require) {
   $("#chatInput").keypress(function(e) {
     if(e.which == 13) {
       ref.child('conversations').child(partner).push({
+        body: $("#chatInput").val(),
+        sender: uid
+      });
+      partnerRef.child('conversations').child(partner).push({
         body: $("#chatInput").val(),
         sender: uid
       });
