@@ -1,0 +1,92 @@
+html, body {
+  background-color: #efebdf;
+  height: 100%; }
+
+#menu-toggle {
+  position: fixed;
+  right: 245px;
+  top: 15px;
+  border: none;
+  border-radius: 5px; }
+
+.profile-img {
+  border-radius: 100%;
+  border: 1px solid grey;
+  width: 100px;
+  height: 100px;
+  margin-top: 30%;
+  margin-bottom: 25%; }
+
+button {
+  background-color: lightgrey;
+  border: none;
+  border-radius: 5px;
+  margin: 15px auto 0; }
+
+#large-user-image > img {
+  max-height: 400px;
+  width: 300px; }
+
+.swipe-view-user-layout {
+  background: white;
+  text-align: center; }
+
+#wrapper {
+  padding-left: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+#wrapper.toggled {
+  padding-right: 250px; }
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  right: 250px;
+  width: 0;
+  height: 100%;
+  margin-right: -250px;
+  overflow-y: auto;
+  background: #FCFBF9;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+#wrapper.toggled #sidebar-wrapper {
+  width: 250px; }
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px; }
+
+#wrapper.toggled #page-content-wrapper {
+  position: absolute;
+  margin-left: -250px; }
+
+/* Sidebar Styles */
+@media (min-width: 768px) {
+  #wrapper {
+    padding-right: 250px; }
+
+  #wrapper.toggled {
+    padding-right: 0; }
+
+  #sidebar-wrapper {
+    width: 250px; }
+
+  #wrapper.toggled #sidebar-wrapper {
+    width: 0; }
+
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative; }
+
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-left: 0; } }
+
+/*# sourceMappingURL=main.css.map */
