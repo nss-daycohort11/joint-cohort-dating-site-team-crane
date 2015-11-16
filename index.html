@@ -12,7 +12,7 @@
 <body>
     <!-- main container start -->
 	<div class="container-fluid">
-		<button class="btn btn-default" id="menu-toggle">Toggle Menu</button>
+		
 		<div id="wrapper">
 		  <div id="sidebar-wrapper">
 		  <!-- sidebar content -->
@@ -25,35 +25,25 @@
 				    		<img class="profile-img" src="http://www.wikihow.com/images/b/b5/Draw-a-Cartoon-Lion-Step-14.jpg">
 				    	</div>
 				      	<div class="row">
-				          	<button>Profile Settings</button>
+				          	<button id="view-profile">Profile Settings</button>
 				      	</div>
 				      	<div class="row">
-			          		<button>Matches</button>
+			          		<button id="view-matches">Matches</button>
 				      	</div>
 				      	<div class="row">
-			          		<button>Discover</button>
+			          		<button id="view-discover">Discover</button>
 				      	</div>  
 				    </div>
 				    <div class="col-md-3"></div>
 		        </div>
 		    </div> <!-- /.container-fluid -->
 		</div> <!-- /.sidebar-wrapper -->
-	  
-	  <!-- SWIPE PAGE TEMPLATE -->
 
-		<div id="swipe-view">
-		  	<div id="main-content" class="row">
-		  		<div class="col-md-3"></div>
-		  		<div class="col-md-6 swipe-view-user-layout">
-		  			<div class="row">
-			  			<h2 class>--username here--</h2>
-			  		</div>
-			  		<div class="row" id="large-user-image">
-			  			<img src="http://g02.a.alicdn.com/kf/HTB1wAQIGXXXXXboXFXXq6xXFXXXG/202336188/HTB1wAQIGXXXXXboXFXXq6xXFXXXG.jpg">
-			  		</div>
-			  		<div class="col-md-3"></div>
-		  		</div>
-		  	</div>
+		<div id="main-content">
+			<button class="btn btn-default" id="menu-toggle">Toggle Menu</button>
+			<div id="swipe-view">
+				<!-- dynamically loaded user info -->
+			</div>
 		</div>
 
 	</div>

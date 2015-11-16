@@ -6,18 +6,18 @@ require.config({
     'hbs': '../lib/bower_components/require-handlebars-plugin/hbs',
     'q': '../lib/bower_components/q/q',
     'bootstrap': '../lib/bower_components/bootstrap/dist/js/bootstrap.min',
-    'firebase' : '../lib/bower_components/firebase/firebase'
+    'firebase': '../lib/bower_components/firebase/firebase'
   },
   shim: {
     'bootstrap': ['jquery'],
-    'firebase' : {
-      exports: "Firebase"
+    'firebase': {
+      exports: 'Firebase'
     }
   }
 });
 
 require(
-  ["dependencies"], 
+  ["dependencies"],
   function(_$_) {
 
     /*
@@ -28,6 +28,6 @@ require(
       If you choose the former, I created two boilerplate modules
       named `potential-mates.js`, and `add-favorite.js`.
      */
-    
+
   }
 );
