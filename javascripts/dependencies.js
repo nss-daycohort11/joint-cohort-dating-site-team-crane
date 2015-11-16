@@ -4,4 +4,5 @@ define(function(require) {
   var h = require("hbs");
   var login = require("login");
   var routing = require("routing");
+  var chat = require("chat");
 });
