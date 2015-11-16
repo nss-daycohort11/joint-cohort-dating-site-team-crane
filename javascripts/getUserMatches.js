@@ -9,7 +9,8 @@ define(function(require) {
     return function () {
 
         var deferred = q.defer();
-        var ref = new Firebase('https://funwithfurries.firebaseio.com/' + uid + '/name/');
+        // URL endpoint ..../matches won't work yet
+        var ref = new Firebase('https://funwithfurries.firebaseio.com/' + uid + '/matches/');
         ref.on('value', function (snapshot) {
             deferred.resolve(snapshot.val());
         })

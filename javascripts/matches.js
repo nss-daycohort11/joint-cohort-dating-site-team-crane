@@ -4,20 +4,10 @@ define(function(require) {
   var allUserData = require("allUserData");
   var getUserMatches = require("getUserMatches");
 
-  var uid;
   var deferred = q.defer();
   var allUsers;
   var thisUserMatches;
 
-  // Make a call to FB to get user's ID.
-  var ref = new Firebase("https://funwithfurries.firebaseio.com/");
-  var authData = ref.getAuth();
-  if (authData) {
-    console.log("Authenticated user with uid:", authData.uid);
-    uid = authData.uid;
-    // Run ajax call to bring in user's matches
-    // retrieveMatches();
-  }
 
   allUserData()
   .then(function (data) {
