@@ -1,7 +1,6 @@
 define(function(require) {
   var $ = require("jquery");
 
-
   var profileImg = ""; // img URL
   var name = ""; // populate from login
   var furryName = "";
@@ -12,7 +11,6 @@ define(function(require) {
   var profileData = {};
 
   $(".save-profile").click(function(event) {
-    console.log(  );
 
     profileData = {
       "picture": $(".profile-pic").attr("src"),
@@ -24,7 +22,6 @@ define(function(require) {
       "bio": $("[name=bio]").val()
     }
     console.log("profileData",profileData);
-
   });
 
 

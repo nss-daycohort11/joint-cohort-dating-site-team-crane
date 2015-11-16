@@ -3,4 +3,6 @@ define(function(require) {
   var b = require("bootstrap");
   var h = require("hbs");
   var profile = require("profile");
+  var login = require("login");
+  var routing = require("routing");
 });
