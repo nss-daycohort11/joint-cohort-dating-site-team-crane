@@ -32,7 +32,7 @@ define(function(require) {
         console.log("Login Failed!", error);
       } else {
         ref.child(authData.uid).once('value', function(snapshot) {
-          if (snapshot == null) {
+          if (snapshot.val() == null) {
             $("#userDoesntExist").show();
           } else {
             routing.goTo("discover");
