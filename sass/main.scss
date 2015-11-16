@@ -44,12 +44,17 @@ h1 {
   background-size: cover;
   text-align: center;
   h1 {
-    //padding-top: 10%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
     color: white;
+    padding-bottom: 2%;
+    border-bottom: 3px solid white;
+    margin: 2% 20%;
   }
   img {
     border-radius: 100%;
   }
+   
+
 
 }
 
