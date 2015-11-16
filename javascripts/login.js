@@ -12,7 +12,7 @@ define(function(require) {
       } else {
         console.log("Authenticated successfully with payload:", authData);
         ref.child(authData.uid).once('value', function(snapshot) {
-          if (snapshot !== null) {
+          if (snapshot.val() !== null) {
             $("#userExists").show();
           } else {
             ref.child(authData.uid).set({
@@ -32,7 +32,7 @@ define(function(require) {
         console.log("Login Failed!", error);
       } else {
         ref.child(authData.uid).once('value', function(snapshot) {
-          if (snapshot == null) {
+          if (snapshot.val() == null) {
             $("#userDoesntExist").show();
           } else {
             routing.goTo("discover");
