@@ -9,11 +9,15 @@ require.config({
     'firebase': '../lib/bower_components/firebase/firebase'
   },
   shim: {
-    'bootstrap': ['jquery']
+    'bootstrap': ['jquery'],
+    'firebase': {
+      exports: 'Firebase'
+    }
   }
 });
 
 require(
+  
   ["dependencies", "matches"], 
   function(_$_) {
 
@@ -25,6 +29,6 @@ require(
       If you choose the former, I created two boilerplate modules
       named `potential-mates.js`, and `add-favorite.js`.
      */
-    
+
   }
 );
