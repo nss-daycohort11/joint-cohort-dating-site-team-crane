@@ -10,7 +10,7 @@ define(function(require) {
 
         var deferred = q.defer();
         // URL endpoint ..../matches won't work yet
-        var ref = new Firebase('https://funwithfurries.firebaseio.com/' + uid + '/matches/');
+        var ref = new Firebase('https://funwithfurries.firebaseio.com/' + uid + '/likedby/');
         ref.on('value', function (snapshot) {
             deferred.resolve(snapshot.val());
         });
