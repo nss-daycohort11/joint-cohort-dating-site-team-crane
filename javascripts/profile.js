@@ -36,6 +36,6 @@ define(function(require) {
     // update firebase with user input form data
     // callback onComplete handles success / fail
       userDataRef.update(profileData, onComplete);
-      routing.goTo("matches");
+      routing.goTo("discover");
   });
 });
