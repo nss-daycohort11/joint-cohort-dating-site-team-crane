@@ -4,6 +4,7 @@ define(function(require) {
   var getUserId = require("getUserId");
   var routing = require("routing");
 
+  var UserDataRef;
 
 // get current authenticated Firebase user
   getUserId()
@@ -12,7 +13,7 @@ define(function(require) {
     console.log("userID",userID);
   var splitUserID = userID.split(":");
   var userDataURL = "https://funwithfurries.firebaseio.com/facebook%3A" + splitUserID[1];
-  var userDataRef = new Firebase(userDataURL);
+  userDataRef = new Firebase(userDataURL);
   })
   .done(function() {});
 
