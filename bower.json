@@ -1,0 +1,21 @@
+{
+  "name": "joint-cohort-dating-site-team-crane",
+  "homepage": "https://github.com/nss-daycohort11/joint-cohort-dating-site-team-crane",
+  "authors": [
+    "beatface <emma.beaton@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "~2.3.1"
+  }
+}
