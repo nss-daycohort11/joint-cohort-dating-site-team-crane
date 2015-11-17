@@ -1,11 +1,10 @@
 define(function(require) {
 	var $ = require("jquery");
 	var routing = require("routing");
-	var dummyObject = require("dummyobject");
 	var swipe = require("swipe-page");
 
 
-	
+
 
 	//toggle function to show/hide sidebar
 	$("#menu-toggle").click(function(e) {

@@ -1,10 +1,16 @@
 html {
 	background-color: #efebdf;
 	height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
 	@extend html;
+}
+
+.container-fluid {
+  padding: 0;
 }
 
 
@@ -47,7 +53,7 @@ button {
   padding-bottom: 50px;
 }
 
-// toggle side menu styling
+// -------- toggle side menu styling --------- //
 
 #wrapper {
     padding-left: 0;
@@ -126,6 +132,9 @@ h1 {
   color: purple;
 }
 
+
+
+// ---------- LOGIN PAGE ------------//
 #loginPage {
   color: white;
   height: 100vh;
@@ -139,6 +148,7 @@ h1 {
   h1 {
     padding-top: 10%;
     color: white;
+    margin-top: 0;
   }
   span {
     display: none;
@@ -151,3 +161,26 @@ h1 {
     border: 2px solid white;
   }
 }
+
+#matches {
+  color: white;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/furry4.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  h1 {
+    //padding-top: 10%;
+    color: white;
+  }
+  img {
+    border-radius: 100%;
+  }
+
+}
+
+
+

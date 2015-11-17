@@ -17,7 +17,8 @@ require.config({
 });
 
 require(
-  ["dependencies"],
+  
+  ["dependencies", "matches"], 
   function(_$_) {
 
     /*
