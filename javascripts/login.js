@@ -37,8 +37,6 @@ define(function(require) {
           if (snapshot.val() === null) {
             $("#userDoesntExist").show();
           } else {
-            ref.child(authData.uid).set({
-            });
             $("#wrapper").removeClass("toggled");
             $("#dynamic-views").show();
             routing.goTo("discover");

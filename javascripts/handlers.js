@@ -32,5 +32,4 @@ define(function(require) {
 		routing.goTo("discover");
 	});
 
-
 });

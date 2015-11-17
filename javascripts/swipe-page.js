@@ -9,9 +9,19 @@ define(function(require) {
 	var counter = 0;
 	var randomizedUserArray;
 
-	var currentUser = getId();
-	var currentUserRef = "https://funwithfurries.firebaseio.com/" + currentUser;
- 	var currentUserData = new Firebase(currentUserRef);
+	var currentUserId;
+
+	getId()
+		.then(function(data) {
+			console.log("data--------", data);
+			currentUserId = data;
+		});
+
+	var userID = getId();
+    var userDataRef = "https://funwithfurries.firebaseio.com/" + userID;
+	console.log("userDataRef",userDataRef);
+	var userData = new Firebase(userDataRef);
+	console.log("userData", userData.child("picture"));
 
 	// getting data from firebase and converting to array
 	allUserData()
@@ -46,17 +56,21 @@ define(function(require) {
 
 	    	var liked_user = randomizedUserArray[counter];
 	    	console.log("liked user", liked_user);
-	    	liked_user.likedby = currentUserData.key; // pushing current user key to liked user's likedby array
-	    	console.log("liked_user is likedby", liked_user.likedby);
-
-	    	// if ( liked_user.key === 
-	    	// 	liked_user.matches += currentuser.key;
-	    	// 	currentuser.matches += liked_user.key;
+	    	console.log("currentUserData key", currentUserId);
+	    	liked_user.likedby = []; // pushing current user key to liked user's likedby array
+	    	liked_user.likedby.push(currentUserId);
+	    	console.log("liked_user is likedby", liked_user);
 
 	    	// // for finding matchess
-	    	// for(var id in currentUserData.likedby) {
-	    	// 	console.log(id, " ------ likes you");
+	    	for(var id in currentUserId.likedby) {
+	    		console.log(id, " ------ likes you");
+	    	}
+
+	    	// if ( liked_user.key ===   ) {
+	    	// 	liked_user.matches += currentuser.key;
+	    	// 	currentuser.matches += liked_user.key;
 	    	// }
+
 
 	    	counter += 1;
 	    	var nextuser = randomizedUserArray[counter];
