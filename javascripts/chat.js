@@ -21,7 +21,7 @@ define(function(require) {
         body: $("#chatInput").val(),
         sender: uid
       });
-      partnerRef.child('conversations').child(partner).push({
+      partnerRef.child('conversations').child(uid).push({
         body: $("#chatInput").val(),
         sender: uid
       });
