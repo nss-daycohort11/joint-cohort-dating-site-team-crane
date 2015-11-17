@@ -5,20 +5,28 @@ define(function(require) {
 
 // get current authenticated Firebase user
   var userID = getUserId();
-  var userDataRef = "https://funwithfurries.firebaseio.com/" + userID;
-  console.log("userDataRef",userDataRef);
-  var userData = new Firebase(userDataRef);
-  console.log("userData", userData.child("picture"));
+  var userDataURL = "https://funwithfurries.firebaseio.com/" + userID;
+  var userDataRef = new Firebase(userDataURL);
+  userDataRef.once('value', function (dataSnapshot) {
+        // code to handle new value and load profile HTML elements
+        var profileData = dataSnapshot.val();
+
+      }, function (err) {
+        // code to handle read error
+        console.log("Unable to read data at \""+userDataURL);
+      });
 
   $(".save-profile").click(function(event) {
-    profileData = {
+    var profileData = {
       "picture": $("[name=img-url]").val(),
       "name": $("[name=name]").val(),
       "furryName": $("[name=furry-name]").val(),
       "age": $("[name=age]").val(),
       "gender": $("[name=gender]").val(),
       "species": $("[name=species]").val(),
-      "bio": $("[name=bio]").val()
+      "bio": $("[name=bio]").val(),
+      "matches": [],
+      "likedBy": []
     }
 
     // success / fail handler for updating firebase with user data
@@ -32,21 +40,28 @@ define(function(require) {
     };
     // update firebase with user input form data
     // callback onComplete handles success / fail
-      userData.update(profileData, onComplete);
+      userDataRef.update(profileData, onComplete);
   });
 
   return {
     loadProfile: function() {
       console.log("loadProfile called.");
-      console.log(userData);
-      // $(".profile-pic").attr("src",userData.key().picture);
-      // $("[name=name]").val(userData.key().name);
-      // $("[name=furry-name]").val(userData.key().furryName);
-      // $("[name=age]").val(userData.key().age);
-      // $("[name=gender]").val(userData.key().gender);
-      // $("[name=species]").val(userData.key().species);
-      // $("[name=bio]").val(userData.key().bio);
-    }
+        var userID = getUserId();
+        var userDataURL = "https://funwithfurries.firebaseio.com/" + userID;
+        var userDataRef = new Firebase(userDataURL);
+        userDataRef.once('value', function (dataSnapshot) {
+        // code to handle new value and load profile HTML elements
+        var profileData = dataSnapshot.val();
+        $(".profile-pic").attr("src",profileData.picture);
+        $("[name=img-url]").val(profileData.picture);
+        $("[name=name]").val(profileData.name);
+        $("[name=furry-name]").val(profileData.furryName);
+        $("[name=age]").val(profileData.age);
+        $("[name=gender]").val(profileData.gender);
+        $("[name=species]").val(profileData.species);
+        $("[name=bio]").val(profileData.bio);
+    });
   }
+};
 
 });
