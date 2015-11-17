@@ -19,9 +19,7 @@ define(function(require) {
       "age": $("[name=age]").val(),
       "gender": $("[name=gender]").val(),
       "species": $("[name=species]").val(),
-      "bio": $("[name=bio]").val(),
-      "matches": [],
-      "likedby": []
+      "bio": $("[name=bio]").val()
     };  
     console.log("profileData",profileData);
   });
