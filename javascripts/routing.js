@@ -17,9 +17,8 @@ define(function(require) {
         console.log("discover");
         $("#profile-page").hide();
         $("#loginPage").hide();
-        $("#matches").hide()
+        $("#matches").hide();
         $("#swipe-view-page").show();
-        $("#menu-sidebar").removeClass("toggled");
       } else if (location === "matches") {
         $("#matches").show();
         $("#profile-page").hide();

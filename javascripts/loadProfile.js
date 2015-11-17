@@ -21,5 +21,5 @@
             $("[name=species]").val(profileData.species);
             $("[name=bio]").val(profileData.bio);
         });
-  }
+  };
 });
