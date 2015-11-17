@@ -43,17 +43,22 @@ define(function(require) {
 
 	    $("#reject-button").click(function() {
 	    	console.log("you clicked left/reject");
+	    	$('.avatar').addClass('rotate-left');
 	    	counter += 1;
 	    	// moves counter to show next array object
 	    	var nextuser = randomizedUserArray[counter];
-	    	require(["hbs!../templates/swipe-page"], function(template) {
-		        $("#swipe-view").html(template(nextuser));
-		    });
+	    	
+    		require(["hbs!../templates/swipe-page"], function(template) {
+    			setTimeout(function () {
+			        $("#swipe-view").html(template(nextuser));
+			    }, 1500);
+    		})
+	    	
 	    });
 
 	    $("#like-button").click(function() {
 	    	console.log("you clicked right/like");
-
+	    	$('.avatar').addClass('rotate-right');
 	    	var liked_user = randomizedUserArray[counter];
 	    	console.log("liked user", liked_user);
 	    	console.log("currentUserData key", currentUserId);
@@ -75,7 +80,9 @@ define(function(require) {
 	    	counter += 1;
 	    	var nextuser = randomizedUserArray[counter];
 	    	require(["hbs!../templates/swipe-page"], function(template) {
-		        $("#swipe-view").html(template(nextuser));
+		        setTimeout(function () {
+			        $("#swipe-view").html(template(nextuser));
+			    }, 1500);
 		    });
 	    });
 });
