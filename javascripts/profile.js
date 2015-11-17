@@ -4,11 +4,18 @@ define(function(require) {
   var getUserId = require("getUserId");
   var routing = require("routing");
 
+  var UserDataRef;
 
 // get current authenticated Firebase user
-  var userID = getUserId();
-  var userDataURL = "https://funwithfurries.firebaseio.com/" + userID;
-  var userDataRef = new Firebase(userDataURL);
+  getUserId()
+  .then(function(userData) {
+    var userID = userData;
+    console.log("userID",userID);
+  var splitUserID = userID.split(":");
+  var userDataURL = "https://funwithfurries.firebaseio.com/facebook%3A" + splitUserID[1];
+  userDataRef = new Firebase(userDataURL);
+  })
+  .done(function() {});
 
   // handler to save profile info to firebase and go to matches page
   $(".save-profile").click(function(event) {
