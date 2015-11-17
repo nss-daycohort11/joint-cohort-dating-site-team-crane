@@ -2,7 +2,7 @@ define(function(require) {
   var q = require("q");
   var firebase = require("firebase");
   var allUserData = require("allUserData");
-  // var getUserMatches = require("getUserMatches");
+  var getUserMatches = require("getUserMatches");
 
   var deferred = q.defer();
   var allUsers;
