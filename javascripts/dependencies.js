@@ -6,5 +6,5 @@ define(function(require) {
   var login = require("login");
   var routing = require("routing");
   var handlers = require("handlers");
+  var logout = require("logout");
 });
-
