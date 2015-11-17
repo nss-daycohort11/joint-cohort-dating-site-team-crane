@@ -14,7 +14,6 @@ define(function(require) {
 		sortData: function(userArray) {
 			console.log("entered sort data");
 			var currentIndex = userArray.length, temporaryValue, randomIndex ;
-
 			// While there remain elements to shuffle...
 			while (0 !== currentIndex) {
 
