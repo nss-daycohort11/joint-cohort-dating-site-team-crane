@@ -6,19 +6,15 @@
 	  <title>Friendly Furries</title>
 	  <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
 	  <link rel="stylesheet" type="text/css" href="styles/main.css">
-	</head>
+</head>
 
+<body>
+	<!-- main container start -->
+	<div class="container-fluid">
 
-	<body>
-
-	    <!-- main container start -->
-		<div class="container-fluid">
-
-
-			<!-- SIDEBAR -->
-			
-			<div id="wrapper" class="toggled">
-			  <div id="sidebar-wrapper">
+		<!-- SIDEBAR -->	
+		<div id="menu-sidebar" class="toggled">
+			  <div id="sidebar-wrapper" class="toggled">
 			  <!-- sidebar content -->
 			    <div id="sidebar-container" class="container-fluid">
 			    	<div class="row">
@@ -44,7 +40,7 @@
 					    <div class="col-md-3"></div>
 			        </div>
 			    </div> <!-- /.container-fluid -->
-			</div> <!-- /.sidebar-wrapper -->
+		</div> <!-- /.sidebar-wrapper -->
 
 		<!-- ******** LOGIN PAGE ********* -->
 		<div id="loginPage">
@@ -55,13 +51,8 @@
 			<button id="newUser" class="btn">Sign Up</button>
 		</div>
 
-
-		<div id="dynamic-views">
-			<button class="btn btn-default menu-toggle" id="menu-toggle">Toggle Menu</button>	
-
-
-			<!-- ******** PROFILE PAGE ********* -->
-			<div id="profile-page" style="display: none">
+		<!-- ******** PROFILE PAGE ********* -->
+		<div id="profile-page" style="display: none">
 				<div class="container well text-center">
 					<div class="row">
 						<h1>Profile</h1>
@@ -94,7 +85,6 @@
 					<div class="row">
 						<label for="gender">Gender: </label>
 						<select name="gender">
-							<option>Gender: </option>
 							<option>Male</option>
 							<option>Female</option>
 							<option>Other</option>
@@ -104,7 +94,6 @@
 					<div class="row">
 						<label for="species">Species: </label>
 						<select name="species">
-							<option>Species: </option>
 							<option>Fox</option>
 							<option>Wolf</option>
 							<option>Dog</option>
@@ -147,11 +136,11 @@
 						<button type="button" class="save-profile btn btn-default">Save</button>
 					</div>
 				</div>
-			</div>
+			</div> <!-- end #profile-page view -->
 
 
 			<!-- ******** SWIPE VIEW PAGE ********* -->
-			<div id="swipe-view-page">
+			<div id="swipe-view-page" class="container" style="display: none">
 				  	<div id="main-content" class="row">
 				  		<div class="col-md-3">
 				  			<button type="button" id="reject-button" class="btn btn-default btn-lg pull-right">
@@ -159,11 +148,8 @@
 							</button>
 				  		</div>
 				  	<div class="col-md-6 swipe-view-user-layout">
-						<div id="swipe-view">
-
-					<!-- dynamically loaded user info -->
-
-						</div>
+						<!-- dynamically loaded user info -->
+						<div id="swipe-view"></div>
 				 	</div>
 			  		<div class="col-md-3">
 			  			<button type="button" id="like-button" class="btn btn-default btn-lg">
@@ -172,12 +158,14 @@
 			  		</div>
 			  	</div> <!-- end #main-content -->
 			</div> <!-- end #swipe-view-page -->
-		</div>
 
-	</div>
-	
+			<!-- *********** MATCHES PAGE ************* -->
+			<div id="matches" class="container" style="display: none">
+	        </div>
+	    </div>
 
-	 	<script data-main="javascripts/dating-site" src="lib/bower_components/requirejs/require.js"></script>
-	</body>
+ 	<script data-main="javascripts/dating-site" src="lib/bower_components/requirejs/require.js"></script>
+</body>
+
 
 </html>
