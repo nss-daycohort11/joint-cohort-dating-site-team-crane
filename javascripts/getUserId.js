@@ -12,6 +12,6 @@ define(function(require) {
             deferred.resolve(authData.uid);
         }
 
-        return deferred.promise
+        return deferred.promise;
     };
 });

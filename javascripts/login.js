@@ -17,8 +17,10 @@ define(function(require) {
           } else {
             ref.child(authData.uid).set({
               name: authData.facebook.displayName,
-              picture: authData.facebook.profileImageURL
+              picture: authData.facebook.profileImageURL,
             });
+            $("#wrapper").removeClass("toggled");
+            $("#dynamic-views").show();
             routing.goTo("profile");
           }
         });
@@ -32,9 +34,11 @@ define(function(require) {
         console.log("Login Failed!", error);
       } else {
         ref.child(authData.uid).once('value', function(snapshot) {
-          if (snapshot.val() == null) {
+          if (snapshot.val() === null) {
             $("#userDoesntExist").show();
           } else {
+            $("#wrapper").removeClass("toggled");
+            $("#dynamic-views").show();
             routing.goTo("discover");
           }
         });

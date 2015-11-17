@@ -5,11 +5,11 @@ define(function(require) {
     return function () {
 
         var deferred = q.defer();
-        var ref = new Firebase('https://funwithfurries.firebaseio.com/');
+        var ref = new Firebase("https://funwithfurries.firebaseio.com/");
         ref.on('value', function (snapshot) {
             deferred.resolve(snapshot.val());
-        })
+        });
 
-        return deferred.promise
+        return deferred.promise;
     };
 });
