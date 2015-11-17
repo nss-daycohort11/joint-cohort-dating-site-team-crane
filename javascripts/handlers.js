@@ -3,15 +3,17 @@ define(function(require) {
 	var routing = require("routing");
 	var swipe = require("swipe-page");
 
+	var counter = 0;
 
-
+	$("#dynamic-views").hide();
 
 	//toggle function to show/hide sidebar
 	$("#menu-toggle").click(function(e) {
 		console.log("you clicked");
 	    e.preventDefault();
 	    $("#wrapper").toggleClass("toggled");
-	    $("#menu-toggle").toggleClass("button-toggled");
+	    $("#menu-toggle").toggleClass("toggled");
+	    $("#menu-toggle").toggleClass("menu-toggle");
 	});
 
 	//sidebar button handlers
@@ -29,7 +31,6 @@ define(function(require) {
 		console.log("clicked view discover");
 		routing.goTo("discover");
 	});
-
 
 
 });

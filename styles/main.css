@@ -7,13 +7,6 @@ html, body {
 .container-fluid {
   padding: 0; }
 
-#menu-toggle {
-  position: fixed;
-  right: 260px;
-  top: 15px;
-  border: none;
-  border-radius: 5px; }
-
 .profile-img {
   border-radius: 100%;
   border: 1px solid grey;
@@ -22,11 +15,27 @@ html, body {
   margin-top: 30%;
   margin-bottom: 25%; }
 
+.swipe-view-user-layout {
+  padding: 0; }
+
+#swipe-view {
+  background-color: #87BCDE; }
+
 button {
   background-color: lightgrey;
   border: none;
   border-radius: 5px;
   margin: 15px auto 0; }
+
+.pull-right {
+  float: right !important; }
+
+#reject-button,
+#like-button {
+  margin-top: 50%;
+  background-color: #E43F6F;
+  color: white;
+  border: none; }
 
 #large-user-image > img {
   max-height: 400px;
@@ -39,7 +48,23 @@ button {
 .bio {
   padding-bottom: 50px; }
 
-#wrapper {
+#menu-toggle {
+  border: none;
+  border-radius: 5px;
+  z-index: -1; }
+
+.menu-toggle {
+  position: absolute;
+  right: 260px;
+  top: 15px; }
+
+#menu-toggle.toggled {
+  position: absolute;
+  right: 75px;
+  top: 15px; }
+
+#wrapper,
+#menu-toggle {
   padding-left: 0;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
