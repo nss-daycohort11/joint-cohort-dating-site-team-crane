@@ -19,8 +19,6 @@ define(function(require) {
               name: authData.facebook.displayName,
               picture: authData.facebook.profileImageURL,
             });
-            $("#wrapper").removeClass("toggled");
-            $("#dynamic-views").show();
             routing.goTo("profile");
           }
         });
@@ -37,8 +35,6 @@ define(function(require) {
           if (snapshot.val() === null) {
             $("#userDoesntExist").show();
           } else {
-            $("#wrapper").removeClass("toggled");
-            $("#dynamic-views").show();
             routing.goTo("discover");
           }
         });
