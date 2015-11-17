@@ -1,7 +1,7 @@
 define(function(require) {
   var $ = require('jquery');
   var loadProfile = require("loadProfile");
-  
+
 
 
 
@@ -23,6 +23,12 @@ define(function(require) {
         $("#profile").hide();
         $("#swipe-view-age").show();
         console.log("matches");
+      } else if (location === "login") {
+        $("#profile-page").hide();
+        $("#loginPage").show();
+        $("#swipe-view-page").hide();
+        $("#menu-sidebar").removeClass("toggled");
+        console.log("login");
       }
     }
   };
