@@ -1,8 +1,11 @@
 html, body {
-  background-color: #efebdf;
+  background-color: #87BCDE;
   height: 100%;
   margin: 0;
   padding: 0; }
+
+body {
+  font-family: "Ubuntu", serif; }
 
 .container-fluid {
   padding: 0; }
@@ -15,27 +18,35 @@ html, body {
   margin-top: 30%;
   margin-bottom: 25%; }
 
+#dynamic-views,
+#swipe-view-page,
+#swipe-view {
+  height: 100vh; }
+
 .swipe-view-user-layout {
   padding: 0; }
 
 #swipe-view {
-  background-color: #87BCDE; }
+  background-color: #A4508B;
+  box-shadow: 0 0 12px #888888; }
 
 button {
-  background-color: lightgrey;
-  border: none;
-  border-radius: 5px;
   margin: 15px auto 0; }
 
 .pull-right {
   float: right !important; }
 
+button,
 #reject-button,
 #like-button {
-  margin-top: 50%;
   background-color: #E43F6F;
   color: white;
-  border: none; }
+  border: none;
+  border-radius: 5px; }
+
+#reject-button,
+#like-button {
+  margin-top: 50%; }
 
 #large-user-image > img {
   max-height: 400px;
@@ -48,10 +59,17 @@ button {
 .bio {
   padding-bottom: 50px; }
 
+.swipe-pic {
+  border-radius: 8px; }
+
 #menu-toggle {
   border: none;
   border-radius: 5px;
-  z-index: 100; }
+  z-index: 100;
+  padding: 6px 12px !important;
+  background-color: #34D1BF;
+  border-bottom: 2px solid #1c7d72;
+  color: #4F4F54; }
 
 .menu-toggle {
   position: absolute;
@@ -126,7 +144,7 @@ h1 {
   color: purple; }
 
 #loginPage {
-  color: white;
+  color: #4F4F54;
   height: 100vh;
   width: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/furry4.jpg) no-repeat center center fixed;
@@ -136,30 +154,33 @@ h1 {
   background-size: cover;
   text-align: center; }
   #loginPage h1 {
+    font-family: "Open Sans", serif;
+    font-weight: 800;
     padding-top: 10%;
     color: white;
     margin-top: 0; }
   #loginPage span {
     display: none; }
   #loginPage button {
-    background-color: transparent;
+    background-color: #34D1BF;
     margin: 10px;
     width: 500px;
     border-radius: 17px;
-    border: 2px solid white; }
+    border: 2px solid #34D1BF; }
 
 #matches {
   color: white;
   height: 100vh;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/furry4.jpg) no-repeat center center fixed;
+  background: #A4508B;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   text-align: center; }
   #matches h1 {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Open Sans", serif;
+    font-weight: 800;
     color: white;
     padding-bottom: 2%;
     border-bottom: 3px solid white;

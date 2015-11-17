@@ -78,7 +78,7 @@ define(function(require) {
 
 	    	// // for finding matches
 	    	for (var id in userData.likedby) {
-	    		// console.log("%%%%%%%", currentUserData.likedby[id]);
+	    		console.log("%%%%%%%", userData.likedby[id]);
 	    		var likedBYuser = userData.likedby[id];
 		    	if (liked_user.key === likedBYuser) {
 		    		console.log("there's a match!");
