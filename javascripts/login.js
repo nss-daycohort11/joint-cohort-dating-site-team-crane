@@ -35,7 +35,7 @@ define(function(require) {
           if (snapshot.val() == null) {
             $("#userDoesntExist").show();
           } else {
-            routing.goTo("discover");
+            routing.goTo("profile");
           }
         });
       }
