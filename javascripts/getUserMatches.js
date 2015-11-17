@@ -13,8 +13,8 @@ define(function(require) {
         var ref = new Firebase('https://funwithfurries.firebaseio.com/' + uid + '/matches/');
         ref.on('value', function (snapshot) {
             deferred.resolve(snapshot.val());
-        })
+        });
 
-        return deferred.promise
+        return deferred.promise;
     };
 });

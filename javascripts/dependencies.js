@@ -5,4 +5,6 @@ define(function(require) {
   var profile = require("profile");
   var login = require("login");
   var routing = require("routing");
+  var handlers = require("handlers");
 });
+

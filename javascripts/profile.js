@@ -20,9 +20,9 @@ define(function(require) {
       "gender": $("[name=gender]").val(),
       "species": $("[name=species]").val(),
       "bio": $("[name=bio]").val(),
-      "matches": [],
-      "likedBy": []
-    }
+      "likedby": [],
+      "matches": []
+    };
 
     // success / fail handler for updating firebase with user data
   var onComplete = function(error) {
@@ -38,26 +38,4 @@ define(function(require) {
       userDataRef.update(profileData, onComplete);
       routing.goTo("matches");
   });
-
-  return {
-  //   loadProfile: function() {
-  //     console.log("loadProfile called.");
-  //       var userID = getUserId();
-  //       var userDataURL = "https://funwithfurries.firebaseio.com/" + userID;
-  //       var userDataRef = new Firebase(userDataURL);
-  //       userDataRef.once('value', function (dataSnapshot) {
-  //       // code to handle new value and load profile HTML elements
-  //       var profileData = dataSnapshot.val();
-  //       $(".profile-pic").attr("src",profileData.picture);
-  //       $("[name=img-url]").val(profileData.picture);
-  //       $("[name=name]").val(profileData.name);
-  //       $("[name=furry-name]").val(profileData.furryName);
-  //       $("[name=age]").val(profileData.age);
-  //       $("[name=gender]").val(profileData.gender);
-  //       $("[name=species]").val(profileData.species);
-  //       $("[name=bio]").val(profileData.bio);
-  //   });
-  // }
-};
-
 });

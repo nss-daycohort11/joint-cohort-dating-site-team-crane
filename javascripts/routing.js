@@ -9,14 +9,18 @@ define(function(require) {
     goTo: function(location) {
       if (location === "profile") {
         loadProfile();
+        $("#profile-page").show();
         $("#loginPage").hide();
-        $("#profile").show();
+        $("#swipe-view-page").hide();
       } else if (location === "discover") {
         console.log("discover");
+        $("#profile-page").hide();
+        $("#loginPage").hide();
+        $("#swipe-view-page").show();
       } else if (location === "matches") {
         $("#profile").hide();
         console.log("matches");
       }
     }
-  }
+  };
 });

@@ -1,5 +1,5 @@
 require.config({
-  baseUrl: '../javascripts',
+  baseUrl: './javascripts',
   paths: {
     'jquery': '../lib/bower_components/jquery/dist/jquery.min',
     'lodash': '../lib/bower_components/lodash/lodash.min',

@@ -1,29 +1,61 @@
 <!doctype html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Joint team project - Dating site</title>
+	<head>
+	  <meta charset="utf-8">
+	  <title>Friendly Furries</title>
+	  <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	  <link rel="stylesheet" type="text/css" href="styles/main.css">
+	</head>
 
-  <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="styles/main.css">
-</head>
 
-<body>
-	<div id="loginPage">
-	<h1>Fun with Furries</h1>
-		<span id="userExists">This user already exists. Please login.</span>
-		<span id="userDoesntExist">You don't have an account yet!</span>
-		<button id="login" class="btn">Login</button><br>
-		<button id="newUser" class="btn">Sign Up</button>
-	</div>
+	<body>
 
-	<div id="profile" style="display: none">
-		<div class="container well text-center">
-		<div class="row">
-			<h1>Profile</h1>
+	    <!-- main container start -->
+		<div class="container-fluid">
+
+
+			<!-- SIDEBAR -->
+			
+			<div id="wrapper" class="toggled">
+			  <div id="sidebar-wrapper">
+			  <!-- sidebar content -->
+			    <div id="sidebar-container" class="container-fluid">
+			    	<div class="row">
+			    		<div class="col-md-3"></div>
+			    		<div class="col-md-6">
+					    	<div class"row">
+					    		<!---img placeholder-->
+					    		<img class="profile-img" src="http://www.wikihow.com/images/b/b5/Draw-a-Cartoon-Lion-Step-14.jpg">
+					    	</div>
+					      	<div class="row">
+					          	<button id="view-profile">Profile Settings</button>
+					      	</div>
+					      	<div class="row">
+				          		<button id="view-matches">Matches</button>
+					      	</div>
+					      	<div class="row">
+				          		<button id="view-discover">Discover</button>
+					      	</div>  
+					      	<div class="row">
+				          		<button id="log-out">Log Out</button>
+					      	</div> 
+					    </div>
+					    <div class="col-md-3"></div>
+			        </div>
+			    </div> <!-- /.container-fluid -->
+			</div> <!-- /.sidebar-wrapper -->
+
+		<!-- ******** LOGIN PAGE ********* -->
+		<div id="loginPage">
+			<h1>Fun with Furries</h1>
+			<span id="userExists">This user already exists. Please login.</span>
+			<span id="userDoesntExist">You don't have an account yet!</span>
+			<button id="login" class="btn">Login</button><br>
+			<button id="newUser" class="btn">Sign Up</button>
 		</div>
 
+<!-- ******************SWIPE PAGE******************* -->
 		<div class="row">
 			<img class="profile-pic" src="http://placehold.it/150x150" alt="user profile picture" height="150" width="150">
 		</div>
@@ -43,11 +75,126 @@
 			<input type="text" name="furry-name" placeholder="furry name">
 		</div>
 
-		<div class="row">	
-			<label for="age">Age: </label>
-			<input type="text" name="age" placeholder="age">
+
+		<div id="dynamic-views">
+			<button class="btn btn-default menu-toggle" id="menu-toggle">Toggle Menu</button>	
+
+
+			<!-- ******** PROFILE PAGE ********* -->
+			<div id="profile-page" style="display: none">
+				<div class="container well text-center">
+					<div class="row">
+						<h1>Profile</h1>
+					</div>
+
+					<div class="row">
+						<img class="profile-pic" src="http://placehold.it/150x150" alt="user profile picture">
+					</div>
+
+					<div class="row">
+						<label for="img-url">Profile pic URL: </label>
+						<input type="text" name="img-url" placeholder="http://www.profile-pic.com/">
+					</div>
+
+					<div class="row">
+						<label for="real-name">Human Name:</label>
+						<input type="text" name="name" placeholder="facebook name">
+					</div>
+
+					<div class="row">
+						<label for="furry-name">Furry Name: </label>
+						<input type="text" name="furry-name" placeholder="furry name">
+					</div>
+
+					<div class="row">	
+						<label for="age">Age: </label>
+						<input type="text" name="age" placeholder="age">
+					</div>
+
+					<div class="row">
+						<label for="gender">Gender: </label>
+						<select name="gender">
+							<option>Gender: </option>
+							<option>Male</option>
+							<option>Female</option>
+							<option>Other</option>
+						</select>
+					</div>
+
+					<div class="row">
+						<label for="species">Species: </label>
+						<select name="species">
+							<option>Species: </option>
+							<option>Fox</option>
+							<option>Wolf</option>
+							<option>Dog</option>
+							<option>Dragon</option>
+							<option>Cat</option>
+							<option>Tiger</option>
+							<option>Lion</option>
+							<option>Racoon</option>
+							<option>Rabbit</option>
+							<option>Skunk</option>
+							<option>Bear</option>
+							<option>Otter</option>
+							<option>Horse</option>
+							<option>Coyote</option>
+							<option>Cheetah</option>
+							<option>Hyena</option>
+							<option>Snow Leopard</option>
+							<option>Kangaroo</option>
+							<option>Bird</option>
+							<option>Rat</option>
+							<option>Gryphon</option>
+							<option>Leopard</option>
+							<option>Lynx</option>
+							<option>Ferret</option>
+							<option>Cougar</option>
+							<option>Dinosaur</option>
+							<option>Squirrel</option>
+							<option>Jackal</option>
+							<option>Deer</option>
+							<option>Bat</option>
+						</select>
+					</div>
+
+					<div class="row">
+						<label for="bio">Bio: </label>
+						<textarea name="bio" rows="3" cols="50" maxlength="150"></textarea>
+					</div>
+
+					<div class="row">
+						<button type="button" class="save-profile btn btn-default">Save</button>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- ******** SWIPE VIEW PAGE ********* -->
+			<div id="swipe-view-page">
+				  	<div id="main-content" class="row">
+				  		<div class="col-md-3">
+				  			<button type="button" id="reject-button" class="btn btn-default btn-lg pull-right">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							</button>
+				  		</div>
+				  	<div class="col-md-6 swipe-view-user-layout">
+						<div id="swipe-view">
+
+					<!-- dynamically loaded user info -->
+
+						</div>
+				 	</div>
+			  		<div class="col-md-3">
+			  			<button type="button" id="like-button" class="btn btn-default btn-lg">
+							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						</button>
+			  		</div>
+			  	</div> <!-- end #main-content -->
+			</div> <!-- end #swipe-view-page -->
 		</div>
 
+<<<<<<< HEAD
 		<div class="row">
 			<label for="gender">Gender: </label>
 			<select name="gender">
@@ -101,11 +248,11 @@
 		<div class="row">
 			<button type="button" class="save-profile btn btn-default">Save</button>
 		<div>
-	</div>
+=======
+>>>>>>> swipe-page-view
 	</div>
 
-  <script data-main="javascripts/dating-site" src="lib/bower_components/requirejs/require.js"></script>
-
-</body>
+	 	<script data-main="javascripts/dating-site" src="lib/bower_components/requirejs/require.js"></script>
+	</body>
 
 </html>
