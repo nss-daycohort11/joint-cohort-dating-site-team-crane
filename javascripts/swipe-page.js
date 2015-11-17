@@ -65,26 +65,25 @@ define(function(require) {
 		    	//console.log("liked user", liked_user);
 		    	//console.log("currentUserData key", currentUserId);
 		    	
-		    	var otheruserId = liked_user.key.split(":");
+		    	var otheruserId = liked_user.key;
 		    	//console.log(otheruserId);
-				var otheruserDataRef = "https://funwithfurries.firebaseio.com/facebook%3A" + otheruserId[1];
-				console.log("userDataRef",userDataRef);
+				var otheruserDataRef = "https://funwithfurries.firebaseio.com/facebook%3A" + otheruserId;
+				//console.log("userDataRef",userDataRef);
 				var otheruserData = new Firebase(otheruserDataRef);
 
 		    	otheruserData.child("likedby").push(currentUserId);
 		    	//console.log("liked_user is likedby", liked_user);
 		    	//console.log("CHECK MATCHES:", userData);
-
+		    	//console.log("CURRENT USER LIKES:", currentUserData.likedby)
 		    	// // for finding matches
-		    	for (var id in userData.likedby) {
-		    		// console.log("%%%%%%%", currentUserData.likedby[id]);
-		    		var likedBYuser = userData.likedby[id];
+
+		    	for (var id in currentUserData.likedby) {
+		    		var likedBYuser = currentUserData.likedby[id];
+		    		//console.log("LIKED BY USER", likedBYuser);
 			    	if (liked_user.key === likedBYuser) {
-			    		//console.log("there's a match!");
-			    		otheruserData.child("matches").push(currentUserId);
+			    		console.log("MATCHED ID", liked_user.key);
+			    		otheruserData.child("matches").push(liked_user.key);
 			    		userData.child("matches").push(liked_user.key);
-			    		//console.log("liked_user.matches", liked_user);
-			    		//console.log("currentuser.matches", userData);
 			    	}
 		    	}
 
