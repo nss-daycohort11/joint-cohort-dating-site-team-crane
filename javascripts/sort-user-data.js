@@ -1,8 +1,14 @@
 define(function(require) {
 	var $ = require("jquery");
+	var getId = require("getUserId");
+
+	var currentUser = getId();
+	var currentUserRef = "https://funwithfurries.firebaseio.com/" + currentUser;
+ 	var currentUserData = new Firebase(currentUserRef);
 
 	return {
 		sortData: function(userArray) {
+			console.log("entered sort data");
 			var currentIndex = userArray.length, temporaryValue, randomIndex ;
 
 			// While there remain elements to shuffle...
@@ -17,6 +23,10 @@ define(function(require) {
 			   userArray[currentIndex] = userArray[randomIndex];
 			   userArray[randomIndex] = temporaryValue;
 			}
+
+			userArray.filter(function(el) {
+				return el.key !== currentUserData.key;
+			});
 
 			return userArray;
 		}

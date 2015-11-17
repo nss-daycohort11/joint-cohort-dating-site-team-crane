@@ -3,18 +3,21 @@ define(function(require) {
 	var sortUserData = require("sort-user-data");
 	var allUserData = require("allUserData");
 	var makeArray = require("make-array");
+	var login = require("login");
+	var getId = require("getUserId");
 
-	var swipeViewArray;
 	var counter = 0;
 	var randomizedUserArray;
+
+	var currentUser = getId();
+	var currentUserRef = "https://funwithfurries.firebaseio.com/" + currentUser;
+ 	var currentUserData = new Firebase(currentUserRef);
 
 	// getting data from firebase and converting to array
 	allUserData()
 		.then(function(data) {
 			var array = makeArray.convertToArray(data);
 			randomizedUserArray = sortUserData.sortData(array);
-			console.log("randomizedUserArray", randomizedUserArray);
-			swipeViewArray = randomizedUserArray;
 	
 			var firstobject = randomizedUserArray[counter];
 			console.log("firstobject", firstobject);
@@ -27,9 +30,11 @@ define(function(require) {
 			console.log("error", error);
 		});
 
+
 	    $("#reject-button").click(function() {
 	    	console.log("you clicked left/reject");
 	    	counter += 1;
+	    	// moves counter to show next array object
 	    	var nextuser = randomizedUserArray[counter];
 	    	require(["hbs!../templates/swipe-page"], function(template) {
 		        $("#swipe-view").html(template(nextuser));
@@ -39,12 +44,19 @@ define(function(require) {
 	    $("#like-button").click(function() {
 	    	console.log("you clicked right/like");
 
-	    	var liked_user_key = randomizedUserArray[counter].key;
-	    	console.log("liked user key", liked_user_key);
+	    	var liked_user = randomizedUserArray[counter];
+	    	console.log("liked user", liked_user);
+	    	liked_user.likedby = currentUserData.key; // pushing current user key to liked user's likedby array
+	    	console.log("liked_user is likedby", liked_user.likedby);
 
+	    	// if ( liked_user.key === 
+	    	// 	liked_user.matches += currentuser.key;
+	    	// 	currentuser.matches += liked_user.key;
 
-
-
+	    	// // for finding matchess
+	    	// for(var id in currentUserData.likedby) {
+	    	// 	console.log(id, " ------ likes you");
+	    	// }
 
 	    	counter += 1;
 	    	var nextuser = randomizedUserArray[counter];

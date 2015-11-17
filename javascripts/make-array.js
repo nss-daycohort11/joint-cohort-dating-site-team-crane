@@ -1,6 +1,7 @@
 define(function(require) {
 	var $ = require("jquery");
 
+
 	return {
 		convertToArray: function(usersObject) {
 			var newArray = [];
@@ -10,7 +11,7 @@ define(function(require) {
 				usersArray.key = key;
 				newArray[newArray.length] = usersArray;
 			}
-
+			console.log("new array", newArray);
 			return newArray;
 
 		}

@@ -17,7 +17,7 @@ define(function(require) {
           } else {
             ref.child(authData.uid).set({
               name: authData.facebook.displayName,
-              picture: authData.facebook.profileImageURL
+              picture: authData.facebook.profileImageURL,
             });
             $("#wrapper").removeClass("toggled");
             $("#dynamic-views").show();
@@ -37,6 +37,8 @@ define(function(require) {
           if (snapshot.val() === null) {
             $("#userDoesntExist").show();
           } else {
+            ref.child(authData.uid).set({
+            });
             $("#wrapper").removeClass("toggled");
             $("#dynamic-views").show();
             routing.goTo("discover");
