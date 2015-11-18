@@ -14,16 +14,6 @@ body {
   padding: 0;
 }
 
-
-.profile-img {
-	border-radius: 100%;
-	border: 1px solid grey;
-	width: 100px;
-	height: 100px;
-	margin-top: 30%;
-	margin-bottom: 25%;
-}
-
 #dynamic-views,
 #swipe-view-page,
 #swipe-view {
@@ -171,6 +161,14 @@ button,
   background-color: #34D1BF;
   border-bottom: 2px solid #1c7d72;
   color: #4F4F54;
+}
+
+.img-circle {
+  margin: 20px 0 5px 5px;
+}
+
+#sidebar-elements {
+  text-align: center;
 }
 
 .menu-toggle {

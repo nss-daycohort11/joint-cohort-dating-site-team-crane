@@ -19,6 +19,9 @@ define(function(require) {
               name: authData.facebook.displayName,
               picture: authData.facebook.profileImageURL,
             });
+            require(["hbs!../templates/sidebar-photo"], function(template) {
+              $("#sidebar-photo").html(template(ref.child(authData.uid)));
+            });
             $("#wrapper").removeClass("toggled");
             $("#dynamic-views").show();
             routing.goTo("profile");
@@ -37,6 +40,10 @@ define(function(require) {
           if (snapshot.val() === null) {
             $("#userDoesntExist").show();
           } else {
+            var userpicture = snapshot.val();
+            require(["hbs!../templates/sidebar-photo"], function(template) {
+              $("#sidebar-photo").html(template(userpicture));
+            });
             $("#wrapper").removeClass("toggled");
             $("#dynamic-views").show();
             routing.goTo("discover");
