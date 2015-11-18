@@ -7,4 +7,5 @@ define(function(require) {
   var routing = require("routing");
   var handlers = require("handlers");
   var logout = require("logout");
+  var swipePage = require("swipe-page");
 });

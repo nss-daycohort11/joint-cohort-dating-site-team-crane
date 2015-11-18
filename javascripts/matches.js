@@ -4,6 +4,7 @@ define(function(require) {
   var allUserData = require("allUserData");
   var getUserMatches = require("getUserMatches");
   var _ = require("lodash");
+  var $ = require("jquery");
 
   var deferred = q.defer();
   var allUsers;
@@ -12,12 +13,12 @@ define(function(require) {
 
   allUserData()
   .then(function (data) {
-    console.log("All user data: ", data);
+    // console.log("All user data: ", data);
     allUsers = data;
 
     getUserMatches()
     .then(function (data) {
-      console.log("ThisUser Matches: ", data);
+      // console.log("ThisUser Matches: ", data);
       thisUserMatches = data;
     }).done(function () {
         // loop through allUsers obj, checking if thisUser.matches has a matching ID.

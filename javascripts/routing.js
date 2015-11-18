@@ -14,7 +14,7 @@ define(function(require) {
         $("#matches").hide();
         $("#swipe-view-page").hide();
       } else if (location === "discover") {
-        console.log("discover");
+        // console.log("discover");
         $("#profile-page").hide();
         $("#loginPage").hide();
         $("#matches").hide();
@@ -24,13 +24,15 @@ define(function(require) {
         $("#profile-page").hide();
         $("#loginPage").hide();
         $("#swipe-view-page").hide();
-        console.log("matches");
+        // console.log("matches");
       } else if (location === "login") {
         $("#profile-page").hide();
         $("#loginPage").show();
         $("#swipe-view-page").hide();
-        $("#menu-sidebar").removeClass("toggled");
-        console.log("login");
+        $("#wrapper").toggleClass("toggled");
+        $("#menu-toggle").toggleClass("toggled");
+        $("#menu-toggle").toggleClass("menu-toggle");
+        // console.log("login");
       }
     }
   };

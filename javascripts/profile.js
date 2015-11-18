@@ -10,9 +10,9 @@ define(function(require) {
   getUserId()
   .then(function(userData) {
     var userID = userData;
-    console.log("userID",userID);
+    // console.log("userID",userID);
   var splitUserID = userID.split(":");
-  var userDataURL = "https://funwithfurries.firebaseio.com/facebook%3A" + splitUserID[1];
+  var userDataURL = "https://funwithfurries.firebaseio.com/facebook:" + splitUserID[1];
   userDataRef = new Firebase(userDataURL);
   })
   .done(function() {});

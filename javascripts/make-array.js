@@ -10,9 +10,9 @@ define(function(require) {
 				var usersArray = usersObject[key];
 				usersArray.key = key;
 				newArray[newArray.length] = usersArray;
-				console.log("usersArray", usersArray);
+				// console.log("usersArray", usersArray);
 			}
-			console.log("new array", newArray);
+			// console.log("new array", newArray);
 			return newArray;
 
 		}

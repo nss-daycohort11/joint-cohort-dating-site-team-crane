@@ -6,13 +6,13 @@ define(function(require) {
 
 	getId()
 		.then(function(data) {
-			console.log("data--------", data);
+			// console.log("data--------", data);
 			currentUserId = data;
 		});
 
 	return {
 		sortData: function(userArray) {
-			console.log("entered sort data");
+			// console.log("entered sort data");
 			var currentIndex = userArray.length, temporaryValue, randomIndex ;
 			// While there remain elements to shuffle...
 			while (0 !== currentIndex) {
@@ -28,11 +28,11 @@ define(function(require) {
 			}
 
 			userArray = userArray.filter(function(el) {
-				console.log("el key", el.key);
-				console.log("does it match uid", currentUserId);
+				// console.log("el key", el.key);
+				// console.log("does it match uid", currentUserId);
 				return el.key !== currentUserId;
 			});
-			console.log("NEW userArray", userArray);
+			// console.log("NEW userArray", userArray);
 
 			return userArray;
 		}

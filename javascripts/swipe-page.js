@@ -17,7 +17,7 @@ define(function(require) {
 		var userID = data;
 		console.log("REAL USERID", userID);
 	    var userDataRef = "https://funwithfurries.firebaseio.com/" + userID;
-		// console.log("userDataRef",userDataRef);
+		console.log("userDataRef",userDataRef);
 		var userData = new Firebase(userDataRef);
 		// console.log("userData", userData.child("picture"));
 
@@ -54,7 +54,7 @@ define(function(require) {
 	    			setTimeout(function () {
 				        $("#swipe-view").html(template(nextuser));
 				    }, 1500);
-	    		})
+	    		});
 		    	
 		    });
 
@@ -67,11 +67,13 @@ define(function(require) {
 		    	
 		    	var otheruserId = liked_user.key.split(":");
 		    	//console.log(otheruserId);
-				var otheruserDataRef = "https://funwithfurries.firebaseio.com/facebook%3A" + otheruserId[1];
-				console.log("userDataRef",userDataRef);
+				var otheruserDataRef = "https://funwithfurries.firebaseio.com/facebook%3A" + otheruserId[1]+"/likedby";
+				console.log("otheruserDataRef",otheruserDataRef);
 				var otheruserData = new Firebase(otheruserDataRef);
 
-		    	otheruserData.child("likedby").push(currentUserId);
+		    	otheruserData.child("likedby").push(currentUserId, function(error) {
+		    		console.log("likedby not pushed to FB");
+		    	});
 		    	//console.log("liked_user is likedby", liked_user);
 		    	//console.log("CHECK MATCHES:", userData);
 
