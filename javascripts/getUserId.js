@@ -8,7 +8,7 @@ define(function(require) {
         var ref = new Firebase("https://funwithfurries.firebaseio.com/");
         var authData = ref.getAuth();
         if (authData) {
-            console.log("Authenticated user with uid:", authData.uid);
+            // console.log("Authenticated user with uid:", authData.uid);
             deferred.resolve(authData.uid);
         }
 

@@ -11,28 +11,26 @@ define(function(require) {
 
 	var currentUserId;
 	var currentUserData;
+	var userData;
 
 	getId()
 	.then(function(data) {
-		var userID = data;
-		console.log("REAL USERID", userID);
-	    var userDataRef = "https://funwithfurries.firebaseio.com/" + userID;
-		console.log("userDataRef",userDataRef);
-		var userData = new Firebase(userDataRef);
-		// console.log("userData", userData.child("picture"));
+		currentUserId = data;
+    	var thisuserId = data.split(":");
+		var thisuserDataRef = "https://funwithfurries.firebaseio.com/facebook%3A" + thisuserId[1];
+		// console.log("thisuserDataRef", thisuserDataRef);
+		userData = new Firebase(thisuserDataRef);
 
 		userData.on("value", function(snapshot) {
-			// console.log("FUCKING SNAPSHOT", snapshot.val());
 			currentUserData = snapshot.val();
+			console.log("currentUserData", currentUserData);
 
 			// getting data from firebase and converting to array
 			allUserData()
 			.then(function(data) {
 				var array = makeArray.convertToArray(data);
 				randomizedUserArray = sortUserData.sortData(array);
-		
 				var firstobject = randomizedUserArray[counter];
-				//console.log("firstobject", firstobject);
 
 		        require(["hbs!../templates/swipe-page"], function(template) {
 			        $("#swipe-view").html(template(firstobject));
@@ -45,57 +43,44 @@ define(function(require) {
 
 		    $("#reject-button").click(function() {
 		    	//console.log("you clicked left/reject");
-		    	$('.avatar').addClass('rotate-left');
 		    	counter += 1;
 		    	// moves counter to show next array object
 		    	var nextuser = randomizedUserArray[counter];
-		    	
 	    		require(["hbs!../templates/swipe-page"], function(template) {
-	    			setTimeout(function () {
-				        $("#swipe-view").html(template(nextuser));
-				    }, 1500);
+			        $("#swipe-view").html(template(nextuser));
 	    		});
-		    	
 		    });
+
 
 		    $("#like-button").click(function() {
 		    	//console.log("you clicked right/like");
-		    	$('.avatar').addClass('rotate-right');
 		    	var liked_user = randomizedUserArray[counter];
-		    	//console.log("liked user", liked_user);
-		    	//console.log("currentUserData key", currentUserId);
 		    	
 		    	var otheruserId = liked_user.key.split(":");
 		    	//console.log(otheruserId);
 				var otheruserDataRef = "https://funwithfurries.firebaseio.com/facebook%3A" + otheruserId[1];
-				console.log("otheruserDataRef",otheruserDataRef);
+				// console.log("otheruserDataRef",otheruserDataRef);
 				var otheruserData = new Firebase(otheruserDataRef);
-				console.log("currentUserId",userID);
-		    	otheruserData.child("likedby").push(userID, function(error) {
-		    		console.log("likedby not pushed to FB");
-		    	});
-		    	//console.log("liked_user is likedby", liked_user);
-		    	//console.log("CHECK MATCHES:", userData);
+				// console.log("currentUserId", currentUserId);
+		    	otheruserData.child("likedby").push(currentUserId);
 
 		    	// // for finding matches
-		    	for (var id in userData.likedby) {
-		    		// console.log("%%%%%%%", currentUserData.likedby[id]);
-		    		var likedBYuser = userData.likedby[id];
+		    	for (var id in currentUserData.likedby) {
+		    		var likedBYuser = currentUserData.likedby[id];
 			    	if (liked_user.key === likedBYuser) {
 			    		//console.log("there's a match!");
+			    		// console.log("liked user key", liked_user.key);
+			    		console.log("LIKED USER", otheruserData);
 			    		otheruserData.child("matches").push(currentUserId);
+			    		console.log("currentUserData matches", userData.child);
 			    		userData.child("matches").push(liked_user.key);
-			    		//console.log("liked_user.matches", liked_user);
-			    		//console.log("currentuser.matches", userData);
 			    	}
 		    	}
 
 		    	counter += 1;
 		    	var nextuser = randomizedUserArray[counter];
 		    	require(["hbs!../templates/swipe-page"], function(template) {
-			        setTimeout(function () {
-				        $("#swipe-view").html(template(nextuser));
-				    }, 1500);
+				    $("#swipe-view").html(template(nextuser));
 			    });
 		    });
 		}); // end snapshot.on function
