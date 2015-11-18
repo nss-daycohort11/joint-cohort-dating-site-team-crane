@@ -23,7 +23,6 @@ define(function(require) {
 
 		userData.on("value", function(snapshot) {
 			currentUserData = snapshot.val();
-			console.log("currentUserData", currentUserData);
 
 			// getting data from firebase and converting to array
 			allUserData()
@@ -55,24 +54,16 @@ define(function(require) {
 		    $("#like-button").click(function() {
 		    	//console.log("you clicked right/like");
 		    	var liked_user = randomizedUserArray[counter];
-		    	
 		    	var otheruserId = liked_user.key.split(":");
-		    	//console.log(otheruserId);
 				var otheruserDataRef = "https://funwithfurries.firebaseio.com/facebook%3A" + otheruserId[1];
-				// console.log("otheruserDataRef",otheruserDataRef);
 				var otheruserData = new Firebase(otheruserDataRef);
-				// console.log("currentUserId", currentUserId);
 		    	otheruserData.child("likedby").push(currentUserId);
 
 		    	// // for finding matches
 		    	for (var id in currentUserData.likedby) {
 		    		var likedBYuser = currentUserData.likedby[id];
 			    	if (liked_user.key === likedBYuser) {
-			    		//console.log("there's a match!");
-			    		// console.log("liked user key", liked_user.key);
-			    		console.log("LIKED USER", otheruserData);
 			    		otheruserData.child("matches").push(currentUserId);
-			    		console.log("currentUserData matches", userData.child);
 			    		userData.child("matches").push(liked_user.key);
 			    	}
 		    	}
