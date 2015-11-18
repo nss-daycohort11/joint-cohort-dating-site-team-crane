@@ -7,6 +7,7 @@ define(function(require) {
 
   $("#log-out").click(function() {
     ref.unauth();
+    $("#menu-toggle").toggleClass("toggled");
     routing.goTo("login");
   });
 
