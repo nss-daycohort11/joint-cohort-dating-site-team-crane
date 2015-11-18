@@ -67,11 +67,11 @@ define(function(require) {
 		    	
 		    	var otheruserId = liked_user.key.split(":");
 		    	//console.log(otheruserId);
-				var otheruserDataRef = "https://funwithfurries.firebaseio.com/facebook%3A" + otheruserId[1]+"/likedby";
+				var otheruserDataRef = "https://funwithfurries.firebaseio.com/facebook%3A" + otheruserId[1];
 				console.log("otheruserDataRef",otheruserDataRef);
 				var otheruserData = new Firebase(otheruserDataRef);
-
-		    	otheruserData.child("likedby").push(currentUserId, function(error) {
+				console.log("currentUserId",userID);
+		    	otheruserData.child("likedby").push(userID, function(error) {
 		    		console.log("likedby not pushed to FB");
 		    	});
 		    	//console.log("liked_user is likedby", liked_user);
